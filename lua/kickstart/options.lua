@@ -8,6 +8,7 @@ vim.wo.cursorline = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
+vim.o.scrolloff = 999
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.

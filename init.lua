@@ -31,8 +31,8 @@ require('lazy').setup({
   -- autopairs
   {
     'windwp/nvim-autopairs',
-    event = "InsertEnter",
-    opts = {} -- this is equalent to setup({}) function
+    event = 'InsertEnter',
+    opts = {}, -- this is equalent to setup({}) function
   },
 
   -- NOTE: This is where your plugins related to LSP can be installed.
@@ -74,15 +74,23 @@ require('lazy').setup({
         -- don't override the built-in and fugitive keymaps
         local gs = package.loaded.gitsigns
         vim.keymap.set({ 'n', 'v' }, ']c', function()
-          if vim.wo.diff then return ']c' end
-          vim.schedule(function() gs.next_hunk() end)
+          if vim.wo.diff then
+            return ']c'
+          end
+          vim.schedule(function()
+            gs.next_hunk()
+          end)
           return '<Ignore>'
-        end, { expr = true, buffer = bufnr, desc = "Jump to next hunk" })
+        end, { expr = true, buffer = bufnr, desc = 'Jump to next hunk' })
         vim.keymap.set({ 'n', 'v' }, '[c', function()
-          if vim.wo.diff then return '[c' end
-          vim.schedule(function() gs.prev_hunk() end)
+          if vim.wo.diff then
+            return '[c'
+          end
+          vim.schedule(function()
+            gs.prev_hunk()
+          end)
           return '<Ignore>'
-        end, { expr = true, buffer = bufnr, desc = "Jump to previous hunk" })
+        end, { expr = true, buffer = bufnr, desc = 'Jump to previous hunk' })
       end,
     },
   },
@@ -106,7 +114,7 @@ require('lazy').setup({
     'lukas-reineke/indent-blankline.nvim',
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help indent_blankline.txt`
-    main = "ibl",
+    main = 'ibl',
     opts = {},
   },
 
@@ -159,9 +167,8 @@ require('lazy').setup({
 }, {})
 
 -- [[ Setting options ]]
-require("kickstart.options")
-require("kickstart.mappings")
-
+require 'kickstart.options'
+require 'kickstart.mappings'
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -176,7 +183,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
-local fb_actions = require "telescope._extensions.file_browser.actions"
+local fb_actions = require 'telescope._extensions.file_browser.actions'
 
 require('telescope').setup {
   defaults = {
@@ -199,63 +206,61 @@ require('telescope').setup {
       auto_depth = false,
       select_buffer = false,
       hidden = { file_browser = false, folder_browser = true },
-      respect_gitignore = vim.fn.executable "fd" == 1,
+      respect_gitignore = vim.fn.executable 'fd' == 1,
       follow_symlinks = false,
-      browse_files = require("telescope._extensions.file_browser.finders").browse_files,
-      browse_folders = require("telescope._extensions.file_browser.finders").browse_folders,
+      browse_files = require('telescope._extensions.file_browser.finders').browse_files,
+      browse_folders = require('telescope._extensions.file_browser.finders').browse_folders,
       hide_parent_dir = false,
       collapse_dirs = false,
       prompt_path = false,
       quiet = false,
-      dir_icon = "",
-      dir_icon_hl = "Default",
+      dir_icon = '',
+      dir_icon_hl = 'Default',
       display_stat = { date = true, size = true, mode = true },
       hijack_netrw = false,
       use_fd = true,
       git_status = true,
       mappings = {
-        ["i"] = {
-          ["<A-c>"] = fb_actions.create,
-          ["<S-CR>"] = fb_actions.create_from_prompt,
-          ["<A-r>"] = fb_actions.rename,
-          ["<A-m>"] = fb_actions.move,
-          ["<A-y>"] = fb_actions.copy,
-          ["<A-d>"] = fb_actions.remove,
-          ["<C-o>"] = fb_actions.open,
-          ["<C-g>"] = fb_actions.goto_parent_dir,
-          ["<C-e>"] = fb_actions.goto_home_dir,
-          ["<C-w>"] = fb_actions.goto_cwd,
-          ["<C-t>"] = fb_actions.change_cwd,
-          ["<C-f>"] = fb_actions.toggle_browser,
-          ["<C-h>"] = fb_actions.toggle_hidden,
-          ["<C-s>"] = fb_actions.toggle_all,
-          ["<bs>"] = fb_actions.backspace,
+        ['i'] = {
+          ['<A-c>'] = fb_actions.create,
+          ['<S-CR>'] = fb_actions.create_from_prompt,
+          ['<A-r>'] = fb_actions.rename,
+          ['<A-m>'] = fb_actions.move,
+          ['<A-y>'] = fb_actions.copy,
+          ['<A-d>'] = fb_actions.remove,
+          ['<C-o>'] = fb_actions.open,
+          ['<C-g>'] = fb_actions.goto_parent_dir,
+          ['<C-e>'] = fb_actions.goto_home_dir,
+          ['<C-w>'] = fb_actions.goto_cwd,
+          ['<C-t>'] = fb_actions.change_cwd,
+          ['<C-f>'] = fb_actions.toggle_browser,
+          ['<C-h>'] = fb_actions.toggle_hidden,
+          ['<C-s>'] = fb_actions.toggle_all,
+          ['<bs>'] = fb_actions.backspace,
         },
-        ["n"] = {
-          ["c"] = fb_actions.create,
-          ["r"] = fb_actions.rename,
-          ["m"] = fb_actions.move,
-          ["y"] = fb_actions.copy,
-          ["d"] = fb_actions.remove,
-          ["o"] = fb_actions.open,
-          ["g"] = fb_actions.goto_parent_dir,
-          ["e"] = fb_actions.goto_home_dir,
-          ["w"] = fb_actions.goto_cwd,
-          ["t"] = fb_actions.change_cwd,
-          ["f"] = fb_actions.toggle_browser,
-          ["h"] = fb_actions.toggle_hidden,
-          ["s"] = fb_actions.toggle_all,
+        ['n'] = {
+          ['c'] = fb_actions.create,
+          ['r'] = fb_actions.rename,
+          ['m'] = fb_actions.move,
+          ['y'] = fb_actions.copy,
+          ['d'] = fb_actions.remove,
+          ['o'] = fb_actions.open,
+          ['g'] = fb_actions.goto_parent_dir,
+          ['e'] = fb_actions.goto_home_dir,
+          ['w'] = fb_actions.goto_cwd,
+          ['t'] = fb_actions.change_cwd,
+          ['f'] = fb_actions.toggle_browser,
+          ['h'] = fb_actions.toggle_hidden,
+          ['s'] = fb_actions.toggle_all,
         },
       },
     },
   },
 }
-require("telescope").load_extension "file_browser"
-
+require('telescope').load_extension 'file_browser'
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
-
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
@@ -420,7 +425,7 @@ mason_lspconfig.setup_handlers {
       settings = servers[server_name],
       filetypes = (servers[server_name] or {}).filetypes,
     }
-  end
+  end,
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`

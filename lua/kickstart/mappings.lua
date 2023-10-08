@@ -23,7 +23,7 @@ vim.keymap.set('n', '<leader>/', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 vim.keymap.set('n', '<leader>.', function()
-  require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1)
+  require('Comment.api').toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1)
 end, { desc = '[.] Comment line' })
 
 -- telescope mappings
@@ -34,10 +34,23 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
+vim.keymap.set('n', '<leader>sb', '<Cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>',
+  { desc = '[S]earch [B]rowse' })
 
 -- barbar mappings
-map('n', '<leader>b]', '<Cmd>BufferNext<CR>', opts)
-map('n', '<leader>b[', '<Cmd>BufferPrevious<CR>', opts)
-map('n', '<leader>bb', '<Cmd>BufferPick<CR>', opts)
-map('n', '<leader>c', '<Cmd>BufferClose<CR>', opts)
-map('n', '<leader>sb', '<Cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>', opts)
+vim.keymap.set('n', '<leader>b]', '<Cmd>BufferNext<CR>', { desc = 'Buffer Next' })
+vim.keymap.set('n', '<leader>b[', '<Cmd>BufferPrevious<CR>', { desc = 'Buffer Previous' })
+vim.keymap.set('n', '<leader>bb', '<Cmd>BufferPick<CR>', { desc = 'Buffer Pick' })
+vim.keymap.set('n', '<leader>b|', function()
+  vim.cmd.vsplit()
+end, { desc = 'Buffer Vertical Split' })
+map('n', '<leader>c', '<Cmd>BufferClose<CR>', { desc = 'Buffer Close' })
+
+-- formatter mappings
+vim.keymap.set('n', '<leader>f', require('conform').formatexpr, opts)
+
+-- movement mappings
+map('n', '<C-h>', '<C-w>h', opts)
+map('n', '<C-j>', '<C-w>j', opts)
+map('n', '<C-k>', '<C-w>k', opts)
+map('n', '<C-l>', '<C-w>l', opts)
