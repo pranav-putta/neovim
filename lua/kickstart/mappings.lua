@@ -2,10 +2,14 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
+local utils = require "kickstart.utils"
+local get_icon = utils.get_icon
+local wk = require("which-key")
+
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-vim.keymap.set('n', '<leader>w', '<Cmd>w<CR>')
+vim.keymap.set('n', '<leader>w', '<Cmd>w<CR>', { desc = "Save File" })
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -54,3 +58,18 @@ map('n', '<C-h>', '<C-w>h', opts)
 map('n', '<C-j>', '<C-w>j', opts)
 map('n', '<C-k>', '<C-w>k', opts)
 map('n', '<C-l>', '<C-w>l', opts)
+
+-- more descriptions
+wk.register({
+    b = {
+      name = "Buffers/Tabs"
+    },
+    s = {
+      name = "Search/File Browser"
+    },
+    g = {
+      name = "Git"
+    }
+  },
+  { prefix = "<leader>" }
+)
