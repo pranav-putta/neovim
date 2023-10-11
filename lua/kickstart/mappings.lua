@@ -31,7 +31,7 @@ vim.keymap.set('n', '<leader>.', function()
 end, { desc = '[.] Comment line' })
 
 -- telescope mappings
-vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
+-- vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
@@ -41,6 +41,9 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 vim.keymap.set('n', '<leader>sb', '<Cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>',
   { desc = '[S]earch [B]rowse' })
 
+--git mappings
+vim.keymap.set('n', '<leader>gd', '<Cmd>DiffviewOpen<CR>', { desc = '[G]it [D]iff' })
+
 -- barbar mappings
 vim.keymap.set('n', '<leader>b]', '<Cmd>BufferNext<CR>', { desc = 'Buffer Next' })
 vim.keymap.set('n', '<leader>b[', '<Cmd>BufferPrevious<CR>', { desc = 'Buffer Previous' })
@@ -48,6 +51,8 @@ vim.keymap.set('n', '<leader>bb', '<Cmd>BufferPick<CR>', { desc = 'Buffer Pick' 
 vim.keymap.set('n', '<leader>b|', function()
   vim.cmd.vsplit()
 end, { desc = 'Buffer Vertical Split' })
+vim.keymap.set('n', '<leader>bc', '<Cmd>BufferCloseAllButCurrent<CR>', { desc = 'Buffer Close Others' })
+
 map('n', '<leader>c', '<Cmd>BufferClose<CR>', { desc = 'Buffer Close' })
 
 -- formatter mappings
@@ -59,8 +64,9 @@ map('n', '<C-j>', '<C-w>j', opts)
 map('n', '<C-k>', '<C-w>k', opts)
 map('n', '<C-l>', '<C-w>l', opts)
 
--- aerial mappings
-vim.keymap.set('n', '<leader>m', '<Cmd>AerialToggle<CR>', { desc = 'Minimap' })
+-- sidebar mappings
+vim.keymap.set('n', '<leader>mm', '<Cmd>AerialToggle<CR>', { desc = 'Code Structure' })
+vim.keymap.set('n', '<leader>me', '<Cmd>Neotree<CR>', { desc = 'File Browser' })
 
 -- themery mapping
 vim.keymap.set('n', '<leader>t', '<Cmd>Telescope colorscheme<CR>', { desc = 'Themes' })
@@ -75,5 +81,8 @@ wk.register({
   },
   g = {
     name = 'Git',
+  },
+  m = {
+    name = 'Map',
   },
 }, { prefix = '<leader>' })
