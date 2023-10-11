@@ -3,7 +3,6 @@ local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 local utils = require 'kickstart.utils'
-local get_icon = utils.get_icon
 local wk = require 'which-key'
 
 -- Keymaps for better default experience
@@ -42,7 +41,15 @@ vim.keymap.set('n', '<leader>sb', '<Cmd>Telescope file_browser path=%:p:h select
   { desc = '[S]earch [B]rowse' })
 
 --git mappings
-vim.keymap.set('n', '<leader>gd', '<Cmd>DiffviewOpen<CR>', { desc = '[G]it [D]iff' })
+vim.keymap.set('n', '<leader>gd', '<Cmd>Git difftool<CR>', { desc = '[G]it [D]iff' })
+vim.keymap.set('n', '<leader>gb', '<Cmd>Git blame<CR>', { desc = '[G]it [B]lame' })
+vim.keymap.set('n', '<leader>ga', '<Cmd>Git add --all<CR>', { desc = '[G]it [A]dd all' })
+vim.keymap.set('n', '<leader>gs', '<Cmd>Neogit kind=floating<CR>', { desc = '[G]it [S]tatus' })
+vim.keymap.set('n', '<leader>gc',
+  string.format('<Cmd>FloatermNew --width=0.9 --height=0.85 --cwd=%s lazygit<CR>', vim.loop.cwd()),
+  { desc = '[G]it [C]ommit' })
+vim.keymap.set('n', '<leader>gt', string.format('%s', vim.loop.cwd()), {})
+vim.keymap.set('n', '<leader>gp', '<Cmd>Git push<CR>', { desc = '[G]it [P]ush' })
 
 -- barbar mappings
 vim.keymap.set('n', '<leader>b]', '<Cmd>BufferNext<CR>', { desc = 'Buffer Next' })
