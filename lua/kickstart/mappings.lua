@@ -45,9 +45,12 @@ vim.keymap.set('n', '<leader>gd', '<Cmd>Git difftool<CR>', { desc = '[G]it [D]if
 vim.keymap.set('n', '<leader>gb', '<Cmd>Git blame<CR>', { desc = '[G]it [B]lame' })
 vim.keymap.set('n', '<leader>ga', '<Cmd>Git add --all<CR>', { desc = '[G]it [A]dd all' })
 vim.keymap.set('n', '<leader>gs', '<Cmd>Neogit kind=floating<CR>', { desc = '[G]it [S]tatus' })
-vim.keymap.set('n', '<leader>gc',
-  string.format('<Cmd>FloatermNew --width=0.9 --height=0.85 --cwd=%s lazygit<CR>', vim.loop.cwd()),
-  { desc = '[G]it [C]ommit' })
+vim.keymap.set(
+  'n',
+  '<leader>gc',
+  string.format('<Cmd>FloatermNew --title="lazygit" --width=0.9 --height=0.85 --cwd=%s lazygit<CR>', vim.loop.cwd()),
+  { desc = '[G]it [C]ommit' }
+)
 vim.keymap.set('n', '<leader>gt', string.format('%s', vim.loop.cwd()), {})
 vim.keymap.set('n', '<leader>gp', '<Cmd>Git push<CR>', { desc = '[G]it [P]ush' })
 
