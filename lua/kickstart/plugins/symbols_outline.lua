@@ -1,6 +1,7 @@
 return {
   'simrat39/symbols-outline.nvim',
   name = 'symbols-outline',
+  lazy = true,
   opts = {},
   -- Optional dependencies
   dependencies = {

@@ -35,7 +35,8 @@ vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { des
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
-vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+vim.keymap.set('n', '<leader>sd', require('telescope.builtin').lsp_document_symbols,
+  { desc = '[S]earch [D]ocument Symbols' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
 vim.keymap.set('n', '<leader>sb', '<Cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>',
   { desc = '[S]earch [B]rowse' })
@@ -47,9 +48,9 @@ vim.keymap.set('n', '<leader>ga', '<Cmd>Git add --all<CR>', { desc = '[G]it [A]d
 vim.keymap.set('n', '<leader>gs', '<Cmd>Neogit kind=floating<CR>', { desc = '[G]it [S]tatus' })
 vim.keymap.set(
   'n',
-  '<leader>gc',
+  '<leader>gl',
   string.format('<Cmd>FloatermNew --title="lazygit" --width=0.9 --height=0.85 --cwd=%s lazygit<CR>', vim.loop.cwd()),
-  { desc = '[G]it [C]ommit' }
+  { desc = '[G]it [L]azy View' }
 )
 vim.keymap.set('n', '<leader>gt', string.format('%s', vim.loop.cwd()), {})
 vim.keymap.set('n', '<leader>gp', '<Cmd>Git push<CR>', { desc = '[G]it [P]ush' })
@@ -79,7 +80,10 @@ vim.keymap.set('n', '<leader>mm', '<Cmd>AerialToggle<CR>', { desc = 'Code Struct
 vim.keymap.set('n', '<leader>me', '<Cmd>Neotree<CR>', { desc = 'File Browser' })
 
 -- themery mapping
-vim.keymap.set('n', '<leader>t', '<Cmd>Telescope colorscheme<CR>', { desc = 'Themes' })
+vim.keymap.set('n', '<leader>T', '<Cmd>Telescope colorscheme<CR>', { desc = 'Themes' })
+
+-- terminal mapping
+vim.keymap.set('n', '<leader>t', '<Cmd>FloatermNew zsh<CR>', { desc = 'Terminal' })
 
 -- more descriptions
 wk.register({
