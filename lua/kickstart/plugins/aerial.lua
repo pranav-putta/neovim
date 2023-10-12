@@ -1,7 +1,6 @@
 return {
   'stevearc/aerial.nvim',
   name = 'aerial',
-  lazy = true,
   opts = {},
   -- Optional dependencies
   dependencies = {

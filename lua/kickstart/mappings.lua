@@ -49,7 +49,7 @@ vim.keymap.set('n', '<leader>gs', '<Cmd>Neogit kind=floating<CR>', { desc = '[G]
 vim.keymap.set(
   'n',
   '<leader>gl',
-  string.format('<Cmd>FloatermNew --title="lazygit" --width=0.9 --height=0.85 --cwd=%s lazygit<CR>', vim.loop.cwd()),
+  string.format('<Cmd>FloatermNew --title="lazygit" --width=0.95 --height=0.95 --cwd=%s lazygit<CR>', vim.loop.cwd()),
   { desc = '[G]it [L]azy View' }
 )
 vim.keymap.set('n', '<leader>gt', string.format('%s', vim.loop.cwd()), {})
