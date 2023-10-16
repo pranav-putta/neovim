@@ -59,6 +59,7 @@ vim.keymap.set('n', '<leader>gp', '<Cmd>Git push<CR>', { desc = '[G]it [P]ush' }
 vim.keymap.set('n', '<leader>b]', '<Cmd>BufferNext<CR>', { desc = 'Buffer Next' })
 vim.keymap.set('n', '<leader>b[', '<Cmd>BufferPrevious<CR>', { desc = 'Buffer Previous' })
 vim.keymap.set('n', '<leader>bb', '<Cmd>BufferPick<CR>', { desc = 'Buffer Pick' })
+vim.keymap.set('n', '<leader>bl', '<Cmd>BufferLast<CR>', { desc = 'Buffer Last' })
 vim.keymap.set('n', '<leader>b|', function()
   vim.cmd.vsplit()
 end, { desc = 'Buffer Vertical Split' })
