@@ -63,9 +63,8 @@ vim.keymap.set('n', '<leader>bl', '<Cmd>BufferLast<CR>', { desc = 'Buffer Last' 
 vim.keymap.set('n', '<leader>b|', function()
   vim.cmd.vsplit()
 end, { desc = 'Buffer Vertical Split' })
-vim.keymap.set('n', '<leader>bc', '<Cmd>BufferCloseAllButCurrent<CR>', { desc = 'Buffer Close Others' })
-
-map('n', '<leader>c', '<Cmd>BufferClose<CR>', { desc = 'Buffer Close' })
+vim.keymap.set('n', '<leader>bc', '<Cmd>BufferClose<CR>', { desc = 'Buffer Close Tab' })
+vim.keymap.set('n', '<leader>bC', '<Cmd>BufferCloseAllButCurrent<CR>', { desc = 'Buffer Close Other Tabs' })
 
 -- formatter mappings
 vim.keymap.set('n', '<leader>f', require('conform').formatexpr, opts)
