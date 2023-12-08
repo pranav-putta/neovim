@@ -16,7 +16,7 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 vim.keymap.set('i', 'jk', '<Esc>')
 
 -- See `:help telescope.builtin`
-vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+-- vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
@@ -63,11 +63,12 @@ vim.keymap.set('n', '<leader>bl', '<Cmd>BufferLast<CR>', { desc = 'Buffer Last' 
 vim.keymap.set('n', '<leader>b|', function()
   vim.cmd.vsplit()
 end, { desc = 'Buffer Vertical Split' })
+
 vim.keymap.set('n', '<leader>bc', '<Cmd>BufferClose<CR>', { desc = 'Buffer Close Tab' })
 vim.keymap.set('n', '<leader>bC', '<Cmd>BufferCloseAllButCurrent<CR>', { desc = 'Buffer Close Other Tabs' })
 
 -- formatter mappings
-vim.keymap.set('n', '<leader>f', require('conform').formatexpr, opts)
+-- vim.keymap.set('n', '<leader>f', , opts)
 
 -- movement mappings
 map('n', '<C-h>', '<C-w>h', opts)
@@ -88,13 +89,13 @@ vim.keymap.set('n', '<leader>t', '<Cmd>FloatermNew zsh<CR>', { desc = 'Terminal'
 -- more descriptions
 wk.register({
   b = {
-    name = 'Buffers/Tabs',
+    name = '󰓩 Buffers/Tabs',
   },
   s = {
-    name = 'Search/File Browser',
+    name = ' Search/File Browser',
   },
   g = {
-    name = 'Git',
+    name = ' Git',
   },
   m = {
     name = 'Map',
