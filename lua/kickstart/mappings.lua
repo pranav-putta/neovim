@@ -67,6 +67,9 @@ end, { desc = 'Buffer Vertical Split' })
 vim.keymap.set('n', '<leader>bc', '<Cmd>BufferClose<CR>', { desc = 'Buffer Close Tab' })
 vim.keymap.set('n', '<leader>bC', '<Cmd>BufferCloseAllButCurrent<CR>', { desc = 'Buffer Close Other Tabs' })
 
+vim.keymap.set('n', '<leader>pe', '<Cmd>Secret<CR>', { desc = 'Enable Secret' })
+vim.keymap.set('n', '<leader>pd', '<Cmd>Secret!<CR>', { desc = 'Disable Secret' })
+
 -- formatter mappings
 -- vim.keymap.set('n', '<leader>f', , opts)
 
