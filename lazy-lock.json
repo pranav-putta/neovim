@@ -33,6 +33,7 @@
   "nvim-web-devicons": { "branch": "master", "commit": "3af745113ea537f58c4b1573b64a429fefad9e07" },
   "overseer.nvim": { "branch": "master", "commit": "400e762648b70397d0d315e5acaf0ff3597f2d8b" },
   "plenary.nvim": { "branch": "master", "commit": "50012918b2fc8357b87cff2a7f7f0446e47da174" },
+  "remote-nvim.nvim": { "branch": "main", "commit": "9e23776bac40b1a0c0a77bc0ec61d22ae8c80128" },
   "secret": { "branch": "master", "commit": "5b8a833fe99a7d51b5dafb53191805952d2d2eb4" },
   "sqlite.lua": { "branch": "master", "commit": "b7e28c8463254c46a8e61c52d27d6a2040492fc3" },
   "symbols-outline": { "branch": "master", "commit": "512791925d57a61c545bc303356e8a8f7869763c" },
