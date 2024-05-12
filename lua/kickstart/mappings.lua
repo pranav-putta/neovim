@@ -1,4 +1,4 @@
--- [[ Basic Keymaps ]]
+-- vim.keymap.set('v', '<leader>.', function()
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
@@ -25,9 +25,12 @@ vim.keymap.set('n', '<leader>/', function()
     previewer = false,
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
-vim.keymap.set('n', '<leader>.', function()
-  require('Comment.api').toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1)
-end, { desc = '[.] Comment line' })
+-- vim.keymap.set('n', '<leader>.', function()
+--   require('Comment.api').toggle.linewise()
+-- end, { desc = '[.] Comment line' })
+-- vim.keymap.set('v', '<leader>.', function()
+-- require('Comment.api').toggle.linewise(vim.fn.visualmode())
+-- end, { desc = '[.] Comment selection' })
 
 -- telescope mappings
 -- vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
