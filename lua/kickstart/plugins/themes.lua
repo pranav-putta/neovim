@@ -7,8 +7,8 @@ return {
     opts = {},
     config = function()
       require('tokyonight').setup {
-        style = 'night',
-        light_style = 'day',
+        -- style = 'night',
+        -- light_style = 'day',
         transparent = true,
         styles = {
           keywords = { italic = false, bold = true },
@@ -38,4 +38,15 @@ return {
       }
     end,
   },
+  {
+    'rebelot/kanagawa.nvim',
+    name = 'kanagawa',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('kanagawa').setup({
+        compile = false
+      })
+    end
+  }
 }

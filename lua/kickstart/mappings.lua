@@ -55,6 +55,13 @@ vim.keymap.set(
 vim.keymap.set('n', '<leader>gt', string.format('%s', vim.loop.cwd()), {})
 vim.keymap.set('n', '<leader>gp', '<Cmd>Git push<CR>', { desc = '[G]it [P]ush' })
 
+-- remote mappings
+vim.keymap.set('n', '<leader>re', require('remote').edit_config, { desc = '[R]emote [E]dit Config' })
+vim.keymap.set('n', '<leader>rc', require('remote').connect, { desc = '[R]emote [C]onnect' })
+vim.keymap.set('n', '<leader>rd', require('remote').disconnect, { desc = '[R]emote [D]isconnect' })
+vim.keymap.set('n', '<leader>rr', require('remote').reconnect, { desc = '[R]emote [R]econnect' })
+vim.keymap.set('n', '<leader>rl', require('remote').check_log, { desc = '[R]emote [L]og' })
+
 -- barbar mappings
 vim.keymap.set('n', '<leader>b]', '<Cmd>BufferNext<CR>', { desc = 'Buffer Next' })
 vim.keymap.set('n', '<leader>b[', '<Cmd>BufferPrevious<CR>', { desc = 'Buffer Previous' })
