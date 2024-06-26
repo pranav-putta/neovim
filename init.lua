@@ -1,4 +1,5 @@
 vim.g.mapleader = ' '
+
 vim.g.maplocalleader = ' '
 
 -- Install package manager
@@ -141,6 +142,15 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
   group = highlight_group,
+  pattern = '*',
+})
+
+local format_group = vim.api.nvim_create_augroup('BufWritePost', { clear = true })
+vim.api.nvim_create_autocmd('BufWritePost', {
+  callback = function()
+    vim.cmd('FormatWrite')
+  end,
+  group = format_group,
   pattern = '*',
 })
 
@@ -394,10 +404,6 @@ local on_attach = function(_, bufnr)
   -- end, '[W]orkspace [L]ist Folders')
 
   -- Create a command `:Format` local to the LSP buffer
-  vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-    vim.lsp.buf.format()
-  end, { desc = 'Format current buffer with LSP' })
-end
 
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -450,5 +456,5 @@ mason_lspconfig.setup_handlers {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
-
+end
 vim.cmd [[colorscheme tokyonight]]

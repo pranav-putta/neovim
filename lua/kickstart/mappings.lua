@@ -89,6 +89,12 @@ map('n', '<C-j>', '<C-w>j', opts)
 map('n', '<C-k>', '<C-w>k', opts)
 map('n', '<C-l>', '<C-w>l', opts)
 
+-- nnoremap <silent> <leader>f :Format<CR>
+--nnoremap <silent> <leader>F :FormatWrite<CR>
+-- add these to the formatter mappings
+vim.keymap.set('n', '<leader>f', '<Cmd>Format<CR>', { desc = 'Format' })
+vim.keymap.set('n', '<leader>F', '<Cmd>FormatWrite<CR>', { desc = 'Format Write' })
+
 -- sidebar mappings
 vim.keymap.set('n', '<leader>mm', '<Cmd>AerialToggle<CR>', { desc = 'Code Structure' })
 vim.keymap.set('n', '<leader>me', '<Cmd>Neotree<CR>', { desc = 'File Browser' })
