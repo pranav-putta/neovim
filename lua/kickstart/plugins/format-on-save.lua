@@ -10,7 +10,9 @@ return {
         },
         formatter_by_ft = {
           python = formatters.black,
-          javascript = formatters.lsp
+          javascript = formatters.prettierd,
+          typescript = formatters.prettierd,
+          typescriptreact = formatters.prettierd
         }
       })
     end
